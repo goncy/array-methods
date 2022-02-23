@@ -62,6 +62,11 @@ function App() {
             />
             <input
               style={{width: 96}}
+              value={item.price}
+              onChange={(event) => handleEdit({...item, price: Number(event.target.value)})}
+            />
+            <input
+              style={{width: 96}}
               value={item.count}
               onChange={(event) => handleEdit({...item, count: Number(event.target.value)})}
             />
