@@ -1,7 +1,19 @@
 # Práctica de Arrays
 Si querés saber más sobre Arrays podes visitar la MDN en su [artículo de primeros pasos](https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps/Arrays)
 
----
+### Instrucciones para correr la aplicación
+Podés correr la app desde codesandbox sin necesidad de instalar nada entrando a [este link](https://codesandbox.io/s/github/goncy/array-methods)
+
+Si querés correr este repositorio localmente podes clonarlo y luego correr:
+```bash
+npm install
+npm run dev
+```
+
+### Tareas
+Implementá todos los métodos que tengan un `@TODO`
+
+## Intro a arrays
 
 Los array sirven para almacenar listas.
 ```js
