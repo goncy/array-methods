@@ -1,5 +1,5 @@
 # Práctica de Arrays
-Si querés saber más sobre Arrays podes visitar la MDN en su [artículo de primeros pasos](https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps/Arrays)
+Este es el repositorio de acompañamiento de [este stream](https://www.youtube.com/watch?v=kX1HKn9yk0g). Si querés saber más sobre Arrays podes visitar la MDN en su [artículo de primeros pasos](https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps/Arrays)
 
 ### Instrucciones para correr la aplicación
 Podés correr la app desde codesandbox sin necesidad de instalar nada entrando a [este link](https://codesandbox.io/s/github/goncy/array-methods)
