@@ -8,18 +8,26 @@ interface Articulo {
   status: "deseo" | "comprado" | "cancelado";
 }
 
-function obtenerNuevoArticulo(): Articulo {
+function obtenerNuevoArticulo(articulo?: Partial<Articulo>): Articulo {
   return {
     id: Date.now(),
-    name: "Cámara digital",
-    price: 100,
+    name: "",
+    price: 0,
     count: 1,
     status: "deseo",
+    ...articulo,
   };
 }
 
 function App() {
-  const [articulos, setArticulos] = useState<Articulo[]>(() => [obtenerNuevoArticulo()]);
+  const [articulos, setArticulos] = useState<Articulo[]>(() => [
+    obtenerNuevoArticulo({
+      name: "Cámara digital",
+      price: 100,
+      count: 1,
+      status: "deseo",
+    }),
+  ]);
   const total = useMemo(() => {
     // @TODO: Retornar la suma de los precios de los artículos
     return 0;
