@@ -1,52 +1,52 @@
 import {useMemo, useState} from "react";
 
-interface Item {
+interface Articulo {
   id: number;
   name: string;
   price: number;
   count: number;
-  status: "wish" | "bought" | "cancelled";
+  status: "deseo" | "comprado" | "cancelado";
 }
 
-// let key = 1;
+function obtenerNuevoArticulo(): Articulo {
+  return {
+    id: Date.now(),
+    name: "Cámara digital",
+    price: 100,
+    count: 1,
+    status: "deseo",
+  };
+}
 
 function App() {
-  const [items, setItems] = useState<Item[]>([
-    {
-      id: 0,
-      name: "Cámara digital",
-      price: 100,
-      count: 1,
-      status: "wish",
-    },
-  ]);
+  const [articulos, setArticulos] = useState<Articulo[]>(() => [obtenerNuevoArticulo()]);
   const total = useMemo(() => {
-    // @TODO: Should implement
+    // @TODO: Retornar la suma de los precios de los artículos
     return 0;
-  }, [items]);
-  const isValid = useMemo(() => {
-    // @TODO: Should implement
+  }, [articulos]);
+  const articulosValidos = useMemo(() => {
+    // @TODO: Retornan true si todos los artículos son válidos
     return true;
-  }, [items]);
+  }, [articulos]);
 
-  function handleAdd() {
-    setItems((items) => {
-      // @TODO: Should implement
-      return items;
+  function agregarArticulo() {
+    setArticulos((articulos) => {
+      // @TODO: Retornar un nuevo arreglo con un nuevo artículo
+      return articulos;
     });
   }
 
-  function handleEdit(item: Item) {
-    setItems((items) => {
-      // @TODO: Should implement
-      return items;
+  function editarArticulo(articulo: Articulo) {
+    setArticulos((articulos) => {
+      // @TODO: Retornar un nuevo arreglo con el artículo editado
+      return articulos;
     });
   }
 
-  function handleRemove(item: Item) {
-    setItems((items) => {
-      // @TODO: Should implement
-      return items;
+  function eliminarArticulo(articulo: Articulo) {
+    setArticulos((articulos) => {
+      // @TODO: Retornar un nuevo arreglo sin el artículo
+      return articulos;
     });
   }
 
@@ -54,38 +54,38 @@ function App() {
     <main>
       <h1>Wincy</h1>
       <ul>
-        {items.map((item) => (
-          <li key={item.id}>
+        {articulos.map((articulo) => (
+          <li key={articulo.id}>
             <input
-              value={item.name}
-              onChange={(event) => handleEdit({...item, name: event.target.value})}
+              value={articulo.name}
+              onChange={(event) => editarArticulo({...articulo, name: event.target.value})}
             />
             <input
               style={{width: 96}}
-              value={item.price}
-              onChange={(event) => handleEdit({...item, price: Number(event.target.value)})}
+              value={articulo.price}
+              onChange={(event) => editarArticulo({...articulo, price: Number(event.target.value)})}
             />
             <input
               style={{width: 96}}
-              value={item.count}
-              onChange={(event) => handleEdit({...item, count: Number(event.target.value)})}
+              value={articulo.count}
+              onChange={(event) => editarArticulo({...articulo, count: Number(event.target.value)})}
             />
             <select
-              value={item.status}
+              value={articulo.status}
               onChange={(event) =>
-                handleEdit({...item, status: event.target.value as Item["status"]})
+                editarArticulo({...articulo, status: event.target.value as Articulo["status"]})
               }
             >
-              <option value="wish">Wish</option>
-              <option value="bought">Bought</option>
-              <option value="cancelled">Cancelled</option>
+              <option value="wish">Deseo</option>
+              <option value="bought">Comprado</option>
+              <option value="cancelled">Cancelado</option>
             </select>
-            <button onClick={() => handleRemove(item)}> Delete </button>
+            <button onClick={() => eliminarArticulo(articulo)}>Borrar</button>
           </li>
         ))}
       </ul>
-      <button onClick={handleAdd}>Add item</button>
-      <p>Are items valid?: {isValid ? "✅" : "⛔"}</p>
+      <button onClick={agregarArticulo}>Agregar artículo</button>
+      <p>Artículos válidos?: {articulosValidos ? "✅" : "⛔"}</p>
       <p>Total: ${total}</p>
     </main>
   );
