@@ -44,14 +44,14 @@ function App() {
     });
   }
 
-  function editarArticulo(articulo: Articulo) {
+  function editarArticulo(articuloModificado: Articulo) {
     setArticulos((articulos) => {
       // @TODO: Retornar un nuevo arreglo con el artículo editado
       return articulos;
     });
   }
 
-  function eliminarArticulo(articulo: Articulo) {
+  function eliminarArticulo(articuloAEliminar: Articulo) {
     setArticulos((articulos) => {
       // @TODO: Retornar un nuevo arreglo sin el artículo
       return articulos;
