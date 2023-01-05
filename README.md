@@ -81,6 +81,55 @@ arregloConcatenado // [1, 2, 3, 4]
 arregloCortado // [2, 3]
 ```
 
+El método `map` crea un nuevo arreglo con los resultados de llamar a una función, aplicada a cada uno de sus elementos.
+```js
+const arregloInmutable = [1, 2, 3]
+
+// Multiplicar los números por 2
+const arregloMultiplicado = arregloInmutable.map(numero => numero * 2)
+
+arregloInmutable // [1, 2, 3]
+arregloMultiplicado // [2, 4, 6]
+```
+
+El método `filter` crea un nuevo arreglo con los que cumplan una condición dada.
+```js
+const arregloInmutable = [1, 2, 3]
+
+// Filtrar solo los elementos pares
+const arregloPar = arregloInmutable.filter(numero => numero % 2 === 0)
+
+arregloInmutable // [1, 2, 3]
+arregloPar // [2]
+```
+
+El método `reduce` ejecuta una función reductora sobre cada elemento, devolviendo como resultado un único valor. Por lo que podríamos no solo filtrar o modificar los valores, sino que podríamos hacer ambos al mismo tiempo.
+```js
+const arregloInmutable = [1, 2, 3]
+
+// Filtrar solo los elementos pares
+const arregloImparMultiplicado = arregloInmutable.reduce(
+  (numeros, numero) => numero % 2 !== 0 ? numeros.concat(numero * 2) : numeros,
+  []
+)
+
+arregloInmutable // [1, 2, 3]
+arregloImparMultiplicado // [2, 6]
+```
+
+También hay métodos de arreglos que no devuelven un arreglo. Métodos como `some` o `every` verifican una condición a cumplir en los elementos del arreglo.
+```js
+const arregloInmutable = [1, 2, 3]
+
+// Multiplicar los números por 2
+const hayPares = arregloInmutable.some(numero => numero % 2 === 0)
+const sonTodosPares = arregloInmutable.every(numero => numero % 2 === 0)
+
+arregloInmutable // [1, 2, 3]
+hayPares // true
+sonTodosPares // false
+```
+
 La decisión de que métodos usar está en cada uno y en las necesidades que tengamos a la hora de manipular nuestros datos. En este ejercicio vamos a estar haciendo cambios a una aplicación React, donde se aconseja no debemos mutar los estados ya que esto puede interferir con el resultado esperado, por ende vamos a centrarnos en algunos de los métodos inmutables como .concat, .filter, .map, .reduce o .some.
 
 ---
