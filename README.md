@@ -47,8 +47,14 @@ arregloDeNumeros // => [ 'cero', 'one', 'dos' ]
 Los arreglos poseen numerosas propiedades y métodos que podemos usar para interactuar con ellos.
 
 ```js
+const arregloDeNumeros = ['cero', 'uno', 'dos']
+
 arregloDeNumeros.length // 3
-arregloDeNumeros.forEach(num => console.log(`número: ${num}`)) // 'número: N'
+arregloDeNumeros.forEach(num => console.log(`número: ${num}`))
+
+// 'número: cero'
+// 'número: uno'
+// 'número: dos'
 ```
 
 Algunos de estos métodos suelen usarse para modificar u obtener copias del arreglo, los métodos que modifican el arreglo original se los llaman métodos mutables.
