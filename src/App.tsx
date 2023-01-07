@@ -33,7 +33,7 @@ function App() {
     return 0;
   }, [articulos]);
   const articulosValidos = useMemo(() => {
-    // @TODO: Retornan true si todos los artículos son válidos
+    // @TODO: Retornar true si todos los artículos son válidos
     return true;
   }, [articulos]);
 
